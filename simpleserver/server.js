@@ -34,6 +34,7 @@ http.createServer(function(req, res){
 	//Check if file/directory
 	if(stats.isFile()){
 		var mimeType = mimeTypes[path.extname(fileName).split(".").reverse[0]];
+		console.log('Serving file with content-type:' + mimeType);
 		res.writeHead(200, {'Content-type': mimeType});
 
 		var fileStream = fs.createReadStream(fileName);
